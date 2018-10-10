@@ -2,19 +2,20 @@ import ApolloClient from "apollo-boost";
 import gql from "graphql-tag";
 
 const client = new ApolloClient({
-  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+  uri: "http://localhost:4000/"
 });
-
-
 
 client
   .query({
     query: gql`
       {
-        rates(currency: "USD") {
+        rates {
+          value
           currency
         }
       }
     `
   })
   .then(result => console.log(result));
+
+export default client
